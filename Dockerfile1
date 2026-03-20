@@ -1,0 +1,18 @@
+# Pull latest ubuntu
+FROM ubuntu:latest
+
+# author information
+LABEL maintainer="Kwapinski s101608@pollub.edu.pl"
+
+#copy the test website
+COPY index.html /var/www/html/
+
+#update systemu # Install apache and run it   #clear cache
+RUN apt-get update && apt-get upgrade -y &&  apt install -y apache2  && apt-get clean && service apache2 start
+
+
+# Expose the port for access
+EXPOSE 80/tcp
+
+#run the apache server
+CMD ["apachectl", "-D", "FOREGROUND"]
