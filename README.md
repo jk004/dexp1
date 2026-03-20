@@ -16,8 +16,13 @@ Aby zmniejszyć liczbę warstw w konenerze komendy są zgrupowane w jednym RUN.
 docker build -f Dockerfile1 -t web100 .
 
 #wersja na repozytorium
-docker build -f Dockerfile1 -t jk11111/dexp1:v1.0.0 .
+docker build -f Dockerfile1 -t jk11111/web100:v1.0.0 .
 
 
 #Aby uruchomić konetener:
 docker run -d -p 8080:80 web100
+
+#wersja z repozytorium
+docker run -d -p 8080:80 jk11111/web100:v1.0.0
+
+
